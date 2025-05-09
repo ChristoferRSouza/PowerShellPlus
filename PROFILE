@@ -1,0 +1,21 @@
+# oh-my-posh https://ohmyposh.dev/docs/installation/windows
+oh-my-posh init pwsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/powerline.omp.json | Invoke-Expression
+
+
+# EZA https://eza.rocks/
+Remove-Alias ls -ErrorAction SilentlyContinue  # Remove o ls padrão
+function ls {
+    eza --git --no-filesize --icons=always --no-time --no-user --no-permissions --color=always
+}
+
+# BAT https://github.com/sharkdp/bat
+Remove-Alias cat -ErrorAction SilentlyContinue  # Remove o alias padrão
+function cat { bat $args }  # Redefine cat para usar bat
+
+# Zoxide https://crates.io/crates/zoxide
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+
+
+
+Import-Module -Name Microsoft.WinGet.CommandNotFound

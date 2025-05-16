@@ -16,6 +16,9 @@ function cat { bat $args }  # Redefine cat para usar bat
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 
+function dietpi {
+    ssh -i ~/.ssh/file.pem -L 8080:localhost:8080 root@192.168.3.100 
+}
 
 
 Import-Module -Name Microsoft.WinGet.CommandNotFound
